@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import Button, { SelectStatusButton } from "./Button";
 import TaskModel from "./TaskModel";
+import { updateSelectedStatus } from "../redux/actions";
+import { useDispatch } from "react-redux";
 // import { useDispatch, useSelector } from "react-redux";
 // import { updatedSelectedStatus } from "../redux/slices/taskSlice";
 
 function AddTask() {
   const [modelOpen, setModelOpen] = useState(false);
 
-  // const dispatch = useDispatch();
-  // const selectedStatus = useSelector((state) => state.task.selectedStatus);
+  const dispatch = useDispatch();
 
-  const handStatusChange = (e) => {
+  const handleStatusChange = (e) => {
     const status = e.target.value;
-    // dispatch(updatedSelectedStatus(status));
+    // console.log('Selected status:', status);
+    dispatch(updateSelectedStatus(status));
   };
 
   return (
@@ -29,9 +31,8 @@ function AddTask() {
         color="#cfcaca"
         textColor="#242222"
         id="status"
-        value=''
-        onChange={(e) => handStatusChange(e)}
-        onKeyDown={(e)=> handStatusChange(e)}
+        defaultValue='all'
+        onChange={handleStatusChange}
       >
         <option value="all">All</option>
         <option value="complete">Complete</option>

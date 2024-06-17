@@ -2,6 +2,7 @@ import './App.css';
 import AddTask from './components/AddTask';
 import TaskContent from './components/TaskContent';
 import TaskHeadline from './components/TaskHeadline';
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -13,12 +14,12 @@ function App() {
           <TaskContent />
         </div>
       </div>
-      {/* <Toaster
+      <Toaster
       position="bottom-center"    
         style={{
           fontSize: "1.4rem"
         }}
-      /> */}
+      />
     </>
   );
 }
