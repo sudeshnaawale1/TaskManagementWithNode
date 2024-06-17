@@ -19,3 +19,5 @@ Connection();
 app.listen(PORT, ()=>{
     console.log(`Server is Running Successfully on PORT: ${PORT}`)
 })
+export default app;
+export { app, server };
