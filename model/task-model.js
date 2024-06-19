@@ -15,11 +15,11 @@ const TaskSchema = new mongoose.Schema({
     status: {
         type: Boolean,
         default: false
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now()
     }
-    // createdAt:{
-    //     type: Date,
-    //     default: Date.now()
-    // }
 })
 
 const taskModel = new mongoose.model('task', TaskSchema);

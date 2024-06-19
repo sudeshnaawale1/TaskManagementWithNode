@@ -11,12 +11,11 @@ app.use(express.json({extended: true}))
 app.use(express.urlencoded({extended: true}))
 app.use('/', Routes)
 
-
 const PORT = 8000;
 
 Connection();
 
-app.listen(PORT, ()=>{
+const server =app.listen(PORT, ()=>{
     console.log(`Server is Running Successfully on PORT: ${PORT}`)
 })
 export default app;
