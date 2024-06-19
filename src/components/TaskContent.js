@@ -27,15 +27,19 @@ function TaskContent() {
     return true;
   });
 
+  const sortedTasks = filteredTasks.sort((a, b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
+
   useEffect(() => {
     dispatch(getAllTasks());
   }, [dispatch]);
 
   return (
     <div>
-      {filteredTasks && filteredTasks.length > 0 ? (
+      {sortedTasks && sortedTasks.length > 0 ? (
         <>
-          {filteredTasks.map((task) => (
+          {sortedTasks.map((task) => (
             <TaskItem key={task._id} task={task} />
           ))}
           <p className="task-content-button">
