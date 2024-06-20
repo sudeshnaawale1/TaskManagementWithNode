@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# Below are the detailed instructions to run the application for both the Frontend and the Backend 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prerequisites
+ - Node.js installed on your machine (ensure you have a recent version, e.g., 14.x or later).
+ - npm (Node Package Manager).
 
-## Available Scripts
+### Backend (Node.js)
 
-In the project directory, you can run:
+#### Navigate to the backend directory:
 
-### `npm start`
+- cd path/to/your/backend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Install dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- npm install
 
-### `npm test`
+#### Run tests:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- npm test
 
-### `npm run build`
+#### Start the server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend (React)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Navigate to the frontend directory:
 
-### `npm run eject`
+- cd path/to/your/frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- npm start
 
-## Learn More
+# Example requests and responses for each endpoint: 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Create a Task:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Request:
+- Request Method: POST
+- Request Path: /tasks
+- Content-Type: application/json
+- Request Body: {
+      title: request.body.title,
+      description: request.body.description,
+      comment = request.body.comment;
+      status: request.body.status,
+      createdAt: Date.now(),
+    };
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Response:
+{
+    "title": "Test 1",
+    "description": "Test 1 description",
+    "comment": "Test 1 comment",
+    "status": true,
+    "createdAt": "2024-06-11T06:20:20.980Z",
+    "_id": "6667eca43cf161110740d819",
+    "__v": 0
+}
 
-### Analyzing the Bundle Size
+### Get All tasks:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Request Method: GET
+- Request Path: /tasks
+- Content-Type: application/json
 
-### Making a Progressive Web App
+#### Response:
+[
+    {
+        "_id": "6667ee243cf161110740d81c",
+        "title": "Test 2 ",
+        "description": "Test 2 description",
+        "status": false,
+        "createdAt": "2024-06-11T06:26:44.627Z",
+        "__v": 0
+    },
+    {
+        "_id": "6667eca43cf161110740d819",
+        "title": "Test 1",
+        "description": "Test 1 description",
+        "comment": "Test 1 comment",
+        "status": true,
+        "createdAt": "2024-06-11T06:20:20.980Z",
+        "__v": 0
+    }
+]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Update Task By ID:
 
-### Advanced Configuration
+#### Request:
+- Request Method: PUT
+- Request Path: /tasks/6667ee243cf161110740d81c
+- Content-Type: application/json
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Response:
+{
+    "_id": "6667ee243cf161110740d81c",
+    "title": "Test 2 22",
+    "description": "Test 2 description",
+    "status": false,
+    "createdAt": "2024-06-11T06:26:44.627Z",
+    "__v": 0,
+    "comment": "Test 2 comment"
+}
 
-### Deployment
+### Delete Task By ID:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Request Method: DELETE
+- Request Path: /tasks/6667eca43cf161110740d819
+- Content-Type: application/json
 
-### `npm run build` fails to minify
+#### Request:
+{
+    "_id": "6667eca43cf161110740d819",
+    "title": "Test 1",
+    "description": "Test 1 description",
+    "comment": "Test 1 comment",
+    "status": true,
+    "createdAt": "2024-06-11T06:20:20.980Z",
+    "__v": 0
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Response:
+{
+    "task": {
+            "_id": "6667eca43cf161110740d819",
+   	        "title": "Test 1",
+           "description": "Test 1 description",
+           "comment": "Test 1 comment",
+           "status": true,
+           "createdAt": "2024-06-11T06:20:20.980Z",
+          "__v": 0
+          },
+    "message": "Task deleted successfully"
+}
+
