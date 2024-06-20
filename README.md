@@ -1,5 +1,42 @@
+# Below are the detailed instructions to run the application for both the Frontend and the Backend 
 
-## Example requests and responses for each endpoint: 
+## Prerequisites
+ - Node.js installed on your machine (ensure you have a recent version, e.g., 14.x or later).
+ - npm (Node Package Manager).
+
+### Backend (Node.js)
+
+#### Navigate to the backend directory:
+
+- cd path/to/your/backend
+
+#### Install dependencies:
+
+- npm install
+
+#### Run tests:
+
+- npm test
+
+#### Start the server:
+
+- npm start
+
+### Frontend (React)
+
+#### Navigate to the frontend directory:
+
+- cd path/to/your/frontend
+
+#### Install dependencies:
+
+- npm install
+
+#### Start the development server:
+
+- npm start
+
+# Example requests and responses for each endpoint: 
 
 ### Create a Task:
 
